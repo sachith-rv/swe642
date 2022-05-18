@@ -9,11 +9,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('angulerBuild') {
+        stage('build') {
             steps {
                 
                 sh 'ng build'
-            	
+            	dir('survey_angular') {
+            		echo 'Creating the Jar ...'
+					sh 'ng build'
+            	}
             }
         }
         
