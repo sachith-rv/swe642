@@ -9,14 +9,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('build') {
+        stage('BuildAngular') {
             steps {
-                sh 'ng build'
-            	dir('survey_angular') {
-            		echo 'Creating the Jar ...'
+                
+            	dir('src/main/webapp') {
+                    workspace = env.WORKSPACE
+            		echo 'Creating the Jar ...${workspace}'
 					sh 'ng build'
             	}
-                
             }
         }
         
