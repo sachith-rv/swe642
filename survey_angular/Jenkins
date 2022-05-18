@@ -13,7 +13,7 @@ pipeline {
             steps {
                 
             	dir('src/main/webapp') {
-                    workspace = env.WORKSPACE
+                    def workspace = env.WORKSPACE
             		echo 'Creating the Jar ...${workspace}'
 					sh 'ng build'
             	}
