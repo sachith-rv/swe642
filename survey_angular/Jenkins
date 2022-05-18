@@ -11,6 +11,7 @@ pipeline {
         }
         stage('BuildAngular') {
             steps {
+                
             	dir('survey_angular') {
                     
 					sh 'ng build'
